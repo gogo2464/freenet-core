@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["contracts/*", "web/container"]
+members = ["contracts/posts", "web/container"]
 
 [profile.dev.package."*"]
 opt-level = 3
@@ -14,8 +14,4 @@ panic = 'abort'
 strip = true
 
 [workspace.dependencies]
-# freenet-stdlib = { version = "0.0.7", default-features = false }
-freenet-stdlib = { path = "../../stdlib/rust", features = ["contract"] }
-
-#[target.wasm32-unknown-unknown]
-#rustflags = ["-C", "link-arg=--import-memory"]
+freenet-stdlib = { workspace = true, path = "../../stdlib/rust", default-features = false, features = ["contract"] }
